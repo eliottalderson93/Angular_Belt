@@ -1,0 +1,58 @@
+<!-- products-->
+<section class="hero">
+  <div class="container">
+    <div class="hero-body">
+      <p class="title">Product List</p>
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="level">
+    <button class="button" (click)="createRoute()">Add New Product</button>
+  </div>
+  <div class="columns">
+    <div class="column">
+      <div class="level">
+        <p>ID</p>
+      </div>
+      <div class="level" *ngFor = "let product of allProducts">
+        <p>{{product._id}}</p>
+      </div>
+    </div>
+    <div class="column">
+      <div class="level">
+        <p>Name</p>
+      </div>
+      <div class="level" *ngFor = "let product of allProducts">
+        <p>{{product.name}}</p>
+      </div>
+    </div>
+    <div class="column">
+      <div class="level">
+        <p>Qty</p>
+      </div>
+      <div class="level" *ngFor = "let product of allProducts">
+        <p>{{product.num}}</p>
+      </div>
+    </div>
+    <div class="column">
+      <div class="level">
+        <p>Price</p>
+      </div>
+      <div class="level" *ngFor = "let product of allProducts">
+        <p>{{product.price}}</p>
+      </div>
+    </div>
+    <div class="column">
+      <div class="level">
+        <p>Actions</p>
+      </div>
+      <div class="level" *ngFor = "let product of allProducts">
+        <div class="level-left">
+          <button class="button" (click)="editRoute(product._id)">Update</button>
+          <button class="button" (click)="detailsRoute(product._id)">Details</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

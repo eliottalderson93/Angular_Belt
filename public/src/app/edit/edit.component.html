@@ -1,0 +1,46 @@
+<!-- update-->
+<section class="hero">
+    <div class="hero-body">
+      <p class="title">Update Product</p>
+      <p class = "subtitle">{{editProduct.name}} {{editProduct.num}} {{editProduct.price}}</p>
+    </div>
+  </section>
+  <section class="section">
+    <form class="container" (submit) = "submit()">
+        <div class = "level"><p style = "color:red;">{{nameError}}</p></div>
+        <div class = "level"><p style = "color:orange;" *ngIf = "editProduct.name.length < 3">Product name must be greater than 2</p></div>
+        <div class="level">
+        <div class="level-left">
+          <label for="editProduct.name">Name: </label>
+          <input type="text" name="editProduct.name" [(ngModel)]="editProduct.name" value="{{editProduct.name}}" />
+        </div>
+      </div>
+      <div class = "level"><p style = "color:red;">{{qtyError}}</p></div>
+      <div class = "level"><p style = "color:orange;" *ngIf = "editProduct.num < 0">Quantity must be a positive number</p></div>
+      <div class="level">
+        <div class="level-left">
+          <label for="editProduct.num">Qty: </label>
+          <input type="text" name="editProduct.num" [(ngModel)]="editProduct.num" value="{{editProduct.num}}" />
+        </div>
+      </div>
+      <div class = "level"><p style = "color:red;">{{priceError}}</p></div>
+      <div class = "level" *ngIf = "editProduct.price < 0"><p style = "color:orange;">Price must be a positive number</p></div>
+      <div class="level">
+        <div class="level-left">
+          <label for="editProduct.price">Price: </label>
+          <input type="text" name="editProduct.price" [(ngModel)]="editProduct.price" value="{{editProduct.price}}" />
+        </div>
+      </div>
+      <div class="level">
+        <button class="button" [disabled] = "(editProduct.price < 0)||(editProduct.num < 0)||(editProduct.name.length < 3)">Update</button>
+      </div>
+    </form>
+    <div class="container">
+      <div class="level">
+        <div class = "level-left">
+        <button class="button" (click)="reset()">Reset</button>
+        <button class = "button" (click)="back()">Back</button>
+      </div>
+      </div>
+    </div>
+  </section>

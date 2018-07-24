@@ -1,0 +1,37 @@
+<!-- product-->
+<section class="hero">
+    <div class="hero-body">
+      <p class="title">Product Details</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <div class="level">
+        <div class="level-left">
+          <label>Name: </label>
+          <label>{{product.name}}</label>
+        </div>
+      </div>
+      <div class="level">
+        <div class="level-left">
+          <label>Qty: </label>
+          <label>{{product.num}}</label>
+        </div>
+      </div>
+      <div class="level">
+        <div class="level-left">
+          <label>Price: </label>
+          <label>{{product.price}}</label>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="level">
+        <div class="level-left">
+          <button class="button" (click)="back()">Back</button>
+          <button class="button" (click)="delete(product._id)" *ngIf = "product.num == 0">Delete</button>
+          <button class="button" (click)="delete(product._id)" *ngIf = "product.num != 0" disabled>Delete</button>
+        </div>
+      </div>
+    </div>
+  </section>
