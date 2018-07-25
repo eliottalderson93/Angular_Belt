@@ -17,7 +17,7 @@ app.use(express.static( __dirname + '/static/'));
 var mongoose = require('mongoose');
 var autoIncrement = require('mongoose-auto-increment');
 
-mongoose.connect('mongodb://localhost/intro');
+mongoose.connect('mongodb://18.191.188.91/intro');
 
 // Use native promises
 mongoose.Promise = global.Promise;
