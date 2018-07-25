@@ -17,10 +17,11 @@ app.use(express.static( __dirname + '/static/'));
 var mongoose = require('mongoose');
 var autoIncrement = require('mongoose-auto-increment');
 var options = {
-    server: { socketOptions: { keepAlive: 1, connectTimeoutMS: 30000 } },
-    replset: { socketOptions: { keepAlive: 1, connectTimeoutMS: 30000 } }
+    socketOptions: { keepAlive: 1, connectTimeoutMS: 30000 },
+    reconnectTries: Number.MAX_VALUE,
+    reconnectInterval: 1000
   };
-mongoose.connect('mongodb://18.191.188.91:27017/intro', options);
+mongoose.connect('mongodb://localhost:27017/intro', options);
 
 // Use native promises
 mongoose.Promise = global.Promise;
